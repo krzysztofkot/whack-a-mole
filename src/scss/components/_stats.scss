@@ -1,0 +1,17 @@
+.stats {
+  font-size: 24px;
+  text-align: center;
+  text-transform: uppercase;
+
+  &__desc {
+    font-size: inherit;
+    margin-bottom: 10px;
+  }
+
+  &__time {
+    text-transform: initial;
+  }
+
+  &__points {
+  }
+}

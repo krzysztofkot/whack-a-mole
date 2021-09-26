@@ -1,6 +1,10 @@
-@use "./base/base";
-@use "./components/board";
-@use "./components/footer";
-@use "./components/header";
-@use "./components/options";
-@use "./components/statistics";
+@import "./utils/mixins";
+@import "./base/animations";
+@import "./base/base";
+@import "./base/utilities";
+@import "./components/buttons";
+@import "./components/game";
+@import "./components/highscores";
+@import "./components/hole";
+@import "./components/popup";
+@import "./components/stats";

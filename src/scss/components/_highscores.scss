@@ -1,0 +1,41 @@
+.highscores {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: grid;
+
+  &__background {
+    background-color: rgba(1, 1, 1, 0.85);
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    grid-area: 1/1/1/1;
+  }
+  &__container {
+    z-index: 6;
+    align-self: center;
+    justify-self: center;
+    grid-area: 1/1/1/1;
+    background-color: var(--backgroundColor);
+    padding: 25px;
+    text-align: center;
+  }
+
+  &__description {
+    margin: 12px 0;
+    &--record {
+      font-weight: 700;
+      text-transform: uppercase;
+      color: red;
+      animation: blink 0.8s infinite;
+      font-size: 20px;
+    }
+  }
+
+  &__score {
+    font-weight: 700;
+  }
+}
