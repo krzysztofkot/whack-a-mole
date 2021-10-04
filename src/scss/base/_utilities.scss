@@ -1,0 +1,8 @@
+.hidden {
+  transform: scale(0) !important;
+  opacity: 0 !important;
+}
+
+.active {
+  animation: mole-move var(--animationSpeed) both;
+}

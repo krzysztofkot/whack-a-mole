@@ -8,16 +8,12 @@
   --animationSpeed: 1.5s;
   --backgroundColor: #90be6d;
   --columns: 3;
-  --rows: 3;
+  --rows: 4;
 
   //levels:
   // easy 3x3
   // medium 3x4
   //hard 4x5
-}
-
-.game__field:nth-child(9) ~ li {
-  display: none;
 }
 
 html {

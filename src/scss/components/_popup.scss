@@ -9,11 +9,13 @@
   z-index: 2;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
   width: 100%;
   max-width: 1200px;
+  // transform: scale(1);
+  transition: opacity 1s, transform 0.5s 1s;
 
   //for development purposes
-  display: none;
+  // display: none;
   // animation: blink 0.8s 3s forwards reverse;
 }
