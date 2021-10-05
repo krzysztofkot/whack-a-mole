@@ -8,7 +8,7 @@
     <script src="./index.js" defer></script>
   </head>
   <body>
-    <div class="popup">
+    <div class="popup hidden">
       <h1 class="game__title">Whack a mole game</h1>
       <figure class="game__logo">
         <img src="./assets/mole.svg" alt="Whack a mole logo" />
@@ -44,14 +44,11 @@
     <div class="highscores">
       <div class="highscores__background"></div>
       <div class="highscores__container">
+        <p class="highscores__description">Game over!</p>
         <p class="highscores__description">
-          Game over! Your score:
-          <span class="highscores__score">1130</span> points
+          Your score: <span class="highscores__score">1130</span> points
         </p>
-        <p class="highscores__description highscores__description--record">
-          New highscore!
-        </p>
-        <button class="btn">start again</button>
+        <button class="btn btn__start-again">start again</button>
       </div>
     </div>
     <div class="countdown hidden">

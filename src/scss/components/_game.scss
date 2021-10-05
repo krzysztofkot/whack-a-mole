@@ -95,7 +95,7 @@
     overflow: hidden;
     text-align: center;
 
-    & > img {
+    & img {
       //for development purposes
       // animation: mole-move calc(var(--animationSpeed) / 4) 0.5s both;
       transform: translateY(100%);
@@ -103,6 +103,7 @@
       height: 100%;
       object-fit: contain;
       object-position: center 85%;
+      // object-position: center;
       display: block;
     }
   }
