@@ -21,18 +21,14 @@
     grid-area: 1/1/1/1;
     background-color: var(--backgroundColor);
     padding: 25px;
+    width: 75vw;
+    max-width: 600px;
     text-align: center;
   }
 
   &__description {
-    margin: 12px 0;
-    &--record {
-      font-weight: 700;
-      text-transform: uppercase;
-      color: red;
-      animation: blink 0.8s infinite;
-      font-size: 20px;
-    }
+    margin-bottom: 18px;
+    font-size: 20px;
   }
 
   &__score {
