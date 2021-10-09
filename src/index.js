@@ -3,8 +3,6 @@
 import "./scss/main.scss";
 import moleIMG from "./assets/mole.svg";
 
-const gameCtrl = document.querySelector(".game__controllers-list");
-
 class GameLevel {
   constructor(rows, cols, gameSpeed) {
     this.rows = rows;
@@ -26,7 +24,7 @@ class UIController {
     this.countdownEl = document.querySelector(".countdown__timer");
     this.highscoresPoints = document.querySelector(".highscores__score");
   }
-  displayCountdownTIme(time) {
+  displayCountdownTime(time) {
     this.countdownEl.textContent = time;
   }
 
@@ -92,7 +90,6 @@ class UIController {
   }
 
   removeMoleState(mole) {
-    let state = this.boardFields[mole].dataset.active;
     this.boardFields[mole].dataset.active = "false";
   }
 
@@ -117,7 +114,7 @@ class GameController {
     return ++this.points;
   }
 
-  setTime(time) {
+  set startCountingTime(time) {
     this.time = time;
   }
 }
@@ -134,12 +131,17 @@ class App {
     this.init();
   }
 
+  set GameTime(time) {
+    this.timer = time;
+  }
+
+  get GameTime() {
+    return this.timer;
+  }
   enableLevels() {
-    console.log("buttons enabled");
     this.levelList.addEventListener("click", this.binedSetLevel);
   }
   disableLevels() {
-    console.log("buttons disabled");
     this.levelList.removeEventListener("click", this.binedSetLevel);
   }
 
@@ -153,9 +155,9 @@ class App {
 
   init() {
     this.gameCtrl.resetPoints();
-    this.gameCtrl.setTime(3);
-    this.UICtrl.displayCountdownTIme(this.gameCtrl.time);
-    this.timer = 5;
+    this.gameCtrl.startCountingTime = 3;
+    this.GameTime = 30;
+    this.UICtrl.displayCountdownTime(this.gameCtrl.time);
     this.UICtrl.togglePopup();
     this.enableLevels();
     this.UICtrl.toggleHighscores();
@@ -183,8 +185,10 @@ class App {
 
   countdownTimer() {
     const intervalId = setInterval(() => {
-      this.timer--;
-      this.UICtrl.displayTimeLeft(this.timer);
+      let currentTimeLeft = this.GameTime;
+      currentTimeLeft--;
+      this.GameTime = currentTimeLeft;
+      this.UICtrl.displayTimeLeft(this.GameTime);
       if (!this.timer) {
         clearInterval(intervalId);
         this.endGame();
@@ -193,10 +197,9 @@ class App {
   }
 
   startGame() {
-    console.log("started");
     this.disableLevels();
     this.UICtrl.displayPoints(this.gameCtrl.points);
-    this.UICtrl.displayTimeLeft(this.timer);
+    this.UICtrl.displayTimeLeft(this.GameTime);
     this.UICtrl.setProperty("columns", this.gameLevel.cols);
     this.UICtrl.setProperty("rows", this.gameLevel.rows);
     this.UICtrl.setGameSpeed("animationSpeed", this.gameLevel.gameSpeed);
@@ -217,7 +220,6 @@ class App {
   setLevel(e) {
     if (e.target.className === "btn") {
       this.gameLevel = gameLevelsList[e.target.dataset.level];
-      console.log("clicked enabled button");
       this.startGame();
     }
   }
@@ -226,7 +228,7 @@ class App {
     let interval;
     const intervalId = setInterval(() => {
       this.gameCtrl.time--;
-      this.UICtrl.displayCountdownTIme(this.gameCtrl.time);
+      this.UICtrl.displayCountdownTime(this.gameCtrl.time);
       if (this.gameCtrl.time === 0) {
         this.generateMole();
         this.countdownTimer();
