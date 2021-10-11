@@ -1,6 +1,6 @@
 # Whack a mole game
 
-live: [Whack a mole](https://krzysztofkot.github.io/blackjack/)
+live: [Whack a mole](https://krzysztofkot.github.io/whack-a-mole/)
 
 ## General info:
 This project is a whack a mole game, where You can choose 3 different game levels.
@@ -41,7 +41,8 @@ Game is counting points
 ```
 Run CYpress e2e tests:
  ```
- $ npm run cypress:run-full
+$ npm run cypress:run-full
+ ```
 
 ### Todos
 
