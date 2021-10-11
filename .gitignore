@@ -1,5 +1,7 @@
 node_modules
-dist
 .cache
 .parcel-cache
+cypress/plugins
+cypress/support
+cypress/videos
 template
