@@ -38,17 +38,10 @@ Game is counting points
  Open Cypress test runner:
  ```
  $ npm run cypress:open
-```
-Run CYpress e2e tests:
  ```
-$ npm run cypress:run-full
+Run Cypress e2e tests:
  ```
-
-### Todos
-
- - add insurance bet option like in real casino game
- - add split card
- - save current cash in local storage
- - add more players (up to 3)
+$ npm run test:e2e
+ ```
 
 
