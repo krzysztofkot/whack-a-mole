@@ -127,8 +127,16 @@ class App {
     this.startAgainBtn = document.querySelector(".btn__start-again");
     this.binedSetLevel = this.setLevel.bind(this);
     this.bindInit = this.init.bind(this);
+    this.resizeApp();
 
     this.init();
+  }
+
+  resizeApp() {
+    window.addEventListener("resize", () => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    });
   }
 
   set GameTime(time) {
