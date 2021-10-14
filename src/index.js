@@ -133,10 +133,13 @@ class App {
   }
 
   resizeApp() {
-    window.addEventListener("resize", () => {
-      let vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
-    });
+    this.resize();
+    window.addEventListener("resize", this.resize);
+  }
+
+  resize() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
   }
 
   set GameTime(time) {
